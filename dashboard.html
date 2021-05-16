@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="user-actions">
+        <button class="button" style="padding: 10px;float: right;width: 120px;font-size: 15px;" onclick="logoutUser();"><span>Logout User</span></button>
+        <button class="button" style="padding: 10px;float: right;width: 120px;font-size: 15px;" onclick="toggleModalVisibility('update-modal', 'block');"><span>Account Settings </span></button>
+    </div>
+    <div class="introduction">
+        <h1 id="greeting"></h1>
+    </div>
+    <div class="actions" style="margin-top: 50px;">
+        <form action="/" method="post" onsubmit="createAlarm(event, this);">
+            <input class="input-style" type="date" name="alarmDate" id="alarmDate" placeholder="Select Date" required>
+            <input class="input-style" type="time" name="alarmTime" id="alarmTime" placeholder="Select Time" required>
+            <button class="button" type="submit" style="vertical-align:middle" onclick=""><span>Add </span></button>
+        </form>
+    </div>
+    <div class="list">
+        <h2 style="text-align: center;">Here is your all alarms</h2>
+        <ul id="all-alarms"></ul>
+    </div>
+    <div class="modals">
+        <div id="update-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="toggleModalVisibility('update-modal', 'none');">&times;</span>
+                <h2>Update User Details</h2>
+                <form action="/" method="post" onsubmit="updateUser(event, this);">
+                    <input class="input-style" type="text" name="firstName" id="firstName" placeholder="First Name" required>
+                    <input class="input-style" type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+                    <input class="input-style" type="email" name="email_reg" id="email_reg" placeholder="Email" required>
+                    <input class="input-style" type="password" name="password_reg" id="password_reg" placeholder="Password" min="6" required>
+                    <input class="input-style" type="submit" value="Submit" style="margin-left: 170px;">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/crypto-js.min.js"></script>
+<script src="./js/script.js"></script>
+<script>
+    loadDashboard();
+</script>
+</html>

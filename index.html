@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="introduction">
+        <h1>Momentum Alarm</h1>
+        <h3>This is an alarm app where you can set notification based alarms. So, what are you waiting for ??</h5>
+        <h3>Let's start creating alarms.</h3>
+    </div>
+    <div class="actions">
+        <button class="button" style="vertical-align:middle" onclick="toggleModalVisibility('signup-modal', 'block');"><span>signup </span></button>
+        <button class="button" style="vertical-align:middle" onclick="toggleModalVisibility('login-modal', 'block');"><span>login </span></button>
+    </div>
+    <div class="modals">
+        <div id="signup-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="toggleModalVisibility('signup-modal', 'none');">&times;</span>
+                <h2>Register User</h2>
+                <form action="/" method="post" onsubmit="registerUser(event, this);">
+                    <input class="input-style" type="text" name="firstName" id="firstName" placeholder="First Name" required>
+                    <input class="input-style" type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+                    <input class="input-style" type="email" name="email_reg" id="email_reg" placeholder="Email" required>
+                    <input class="input-style" type="password" name="password_reg" id="password_reg" placeholder="Password" min="6" required>
+                    <br>
+                    <input type="checkbox" name="agree" id="agree" style="margin-top: 10px; margin-left: 220px;" checked required>
+                    <label for="scales">I agree to the Terms of Use</label>
+                    <input class="input-style" type="submit" value="Submit" style="margin-left: 170px;">
+                </form>
+            </div>
+        </div>
+        <div id="login-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="toggleModalVisibility('login-modal', 'none');">&times;</span>
+                <h2>Login User</h2>
+                <form action="/" method="post" onsubmit="loginUser(event, this);">
+                    <input class="input-style" type="email" name="email_log" id="email_log" placeholder="Email" required>
+                    <input class="input-style" type="password" name="password_log" id="password_log" placeholder="Password" min="6  " required>
+                    <input class="input-style" type="submit" value="Submit" style="margin-left: 170px;">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/crypto-js.min.js"></script>
+<script src="./js/script.js"></script>
+</html>
